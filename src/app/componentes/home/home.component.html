@@ -1,0 +1,33 @@
+<H1>{{NombreCompleto}} :</H1>
+
+<table class="table table-success table-striped">
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">NOMBRE</th>
+          <th scope="col">PROBABILIDAD</th>
+          <th scope="col">GENERO</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>{{tipoNombre.count}}</th>
+          <td>{{tipoNombre.name}}</td>
+          <td>{{tipoNombre.probability | percent}}</td>
+          <td>{{tipoNombre.gender}}</td>
+        </tr>
+      </tbody>
+      <thead>
+        <br>
+        <tr>
+          <th scope="col">NACIONALIDAD</th>
+          <th scope="col">PROBABILIDAD</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of tipoNacion.country">
+          <th>{{i.country_id}}</th>
+          <td>{{i.probability | percent}}</td>
+        </tr>
+      </tbody>
+  </table>

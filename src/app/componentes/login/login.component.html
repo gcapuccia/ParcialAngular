@@ -1,0 +1,45 @@
+
+<section class="vh-100" style="background-color: #508bfc;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+            <form [formGroup]="LoginForm" >
+            <h3 class="mb-5">Login</h3>
+
+            <div class="form-outline mb-4">
+              <input type="email" id="typeEmailX-2" class="form-control form-control-lg" formControlName="usuario"/>
+              <label class="form-label" for="typeEmailX-2">Email</label>
+              <div *ngIf="Controles['usuario'].errors?.['email']">
+                <p style="color: red">Usuario debe ser un mail</p>
+              </div>
+              <div *ngIf="Controles['usuario'].errors?.['required']">
+                <p style="color: red">Este campo es Obligatorio</p>
+              </div>
+            </div>
+
+            <div class="form-outline mb-4">
+              <input type="password" id="typePasswordX-2" class="form-control form-control-lg" formControlName="clave" />
+              <label class="form-label" for="typePasswordX-2">Password</label>
+              <div *ngIf="Controles['clave'].errors?.['required']">
+                <p style="color: red">Este campo es Obligatorio</p>
+              </div>
+              <div *ngIf="Controles['clave'].errors?.['minlength']">
+                <p style="color: red">Contraseña muy corta</p>
+              </div>
+            </div>
+
+
+            <div *ngIf="LoginForm.valid">
+
+              <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="EnviarFormulario()">Login</button>
+
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
